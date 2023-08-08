@@ -78,6 +78,146 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-reading-notes-5" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/08/reading-notes-5/" class="article-date">
+  <time class="dt-published" datetime="2023-08-08T00:26:23.000Z" itemprop="datePublished">2023-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/08/08/reading-notes-5/">（5）读书笔记 —— 心中有数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;<br>&#x4F7F;&#x7528;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#xFF0C;&#x5C06;&#x4E0B;&#x5217;&#x6570;&#x636E;&#x62DF;&#x5408;&#x4E3A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B; y = b0 + b1 * x</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = [<span class="number">208</span>, <span class="number">152</span>, <span class="number">113</span>,<span class="number">227</span>, <span class="number">137</span>, <span class="number">238</span>, <span class="number">178</span>, <span class="number">104</span>, <span class="number">191</span>, <span class="number">130</span>]</span><br><span class="line">y = [<span class="number">21.6</span>, <span class="number">15.5</span>, <span class="number">10.4</span>, <span class="number">31.0</span>, <span class="number">13.0</span>, <span class="number">32.4</span>, <span class="number">19.0</span>, <span class="number">10.4</span>, <span class="number">19.0</span>, <span class="number">11.8</span>]</span><br><span class="line"></span><br><span class="line">plt.plot(x, y,<span class="string">&apos;.&apos;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/2023/08/08/reading-notes-5/output_1_0.png" alt="png"></p>
+<pre><code>167.8
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">avg_x = <span class="built_in">sum</span>(x) / <span class="built_in">len</span>(x)</span><br><span class="line">avg_y = <span class="built_in">sum</span>(y) / <span class="built_in">len</span>(y)</span><br><span class="line"><span class="built_in">print</span>(avg_x)</span><br><span class="line"><span class="built_in">print</span>(avg_y)</span><br></pre></td></tr></table></figure>
+
+<pre><code>167.8
+18.410000000000004
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b1_dividend = <span class="number">0</span>;</span><br><span class="line">b1_divisor = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">    b1_dividend += x[i] * y[i] </span><br><span class="line">    b1_divisor += x[i] * x[i] </span><br><span class="line">b1 = (b1_dividend - <span class="built_in">len</span>(x) * avg_x * avg_y) / (b1_divisor - <span class="built_in">len</span>(x) * avg_x * avg_x)</span><br><span class="line">b1 </span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.16123403754487142
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x6C42;b1&#x4E5F;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x5316;&#x7B80;&#x540E;&#x7684;&#x516C;&#x5F0F;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b1_dividend = <span class="number">0</span>;</span><br><span class="line">b1_divisor = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">    b1_dividend += (x[i]-avg_x) * (y[i] - avg_y) </span><br><span class="line">    b1_divisor += (x[i] - avg_x) *  (x[i] - avg_x)</span><br><span class="line">b1 = b1_dividend / b1_divisor</span><br><span class="line">b1 </span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.16123403754487145
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b0 = avg_y - b1 * avg_x</span><br><span class="line">b0</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>-8.645071500029427
+</code></pre>
+<p>&#x5F97;&#x77E5;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x4E3A;y = -8.645 + 0.1612 * x<br>&#x5C06;&#x76F4;&#x7EBF;&#x548C;&#x70B9;&#x753B;&#x5728;&#x540C;&#x4E00;&#x5F20;&#x56FE;&#x4E0A;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x_new = np.linspace(<span class="number">100</span>, <span class="number">240</span>, <span class="number">10</span>)</span><br><span class="line">y_new = b0 + b1 * x_new</span><br><span class="line">plt.plot(x, y,<span class="string">&apos;.&apos;</span>)</span><br><span class="line">plt.plot(x_new, y_new, c=<span class="string">&apos;orange&apos;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x3b011a0&gt;]
+</code></pre>
+<p><img src="/2023/08/08/reading-notes-5/output_8_1.png" alt="png"></p>
+<p>tips:</p>
+<ol>
+<li>python &#x5B89;&#x88C5;pip<br>python -m ensurepip &#x2013;default-pip</li>
+<li>&#x627E;&#x5230;python&#x5B89;&#x88C5;&#x8DEF;&#x5F84;<br>&#x8FDB;&#x5165;python shell<br>&#x8F93;&#x5165;<br>import sys<br>sys.path<br>&#x5C31;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;python&#x8DEF;&#x5F84;</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leiz-eng.github.io/2023/08/08/reading-notes-5/" data-id="cll1o2ax30000s8v80v0kftll" data-title="（5）读书笔记 —— 心中有数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-arduino-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/07/arduino-2/" class="article-date">
+  <time class="dt-published" datetime="2023-08-07T08:24:31.000Z" itemprop="datePublished">2023-08-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/08/07/arduino-2/">arduino 学习（2）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>I/O&#x53E3;&#x7684;&#x9AD8;&#x7EA7;&#x5E94;&#x7528;</p>
+<ol>
+<li>&#x8C03;&#x58F0;&#x51FD;&#x6570;<ol>
+<li>tone()<br> <img src="/2023/08/07/arduino-2/2023-08-07T162658.png" alt="2023-08-07T162658"></li></ol></li></ol></li></ol>
+        
+          <p class="article-more-link">
+            <a href="/2023/08/07/arduino-2/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leiz-eng.github.io/2023/08/07/arduino-2/" data-id="cll0wld470000k0v88bay3ui5" data-title="arduino 学习（2）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-arduino-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/08/02/arduino-1/" class="article-date">
@@ -457,60 +597,12 @@
 
 
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/07/14/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2023-07-14T08:46:55.613Z" itemprop="datePublished">2023-07-14</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/07/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leiz-eng.github.io/2023/07/14/hello-world/" data-id="clk7zcabf0001z0v855i92t9y" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -533,7 +625,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 15px;">个人</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 15px;">测试</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 20px;">读书</a>
+      <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 10px;">个人</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 20px;">读书</a>
     </div>
   </div>
 
@@ -555,6 +647,14 @@
       <ul>
         
           <li>
+            <a href="/2023/08/08/reading-notes-5/">（5）读书笔记 —— 心中有数</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/07/arduino-2/">arduino 学习（2）</a>
+          </li>
+        
+          <li>
             <a href="/2023/08/02/arduino-1/">arduino 学习（1）</a>
           </li>
         
@@ -564,14 +664,6 @@
         
           <li>
             <a href="/2023/07/25/reading-notes-3/">（3）读书笔记 —— 且介亭杂文</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/20/reading-notes-2/">（2）读书笔记 —— 花边文学</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/19/reading-notes-1/">（1）读书笔记 —— 孔乙己</a>
           </li>
         
       </ul>
