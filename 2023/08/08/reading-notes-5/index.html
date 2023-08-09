@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/08/reading-notes-5/output_1_0.png">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/08/reading-notes-5/output_8_1.png">
 <meta property="article:published_time" content="2023-08-08T00:26:23.000Z">
-<meta property="article:modified_time" content="2023-08-08T02:15:18.795Z">
+<meta property="article:modified_time" content="2023-08-09T03:04:33.453Z">
 <meta property="article:author" content="Lei Zhao">
 <meta property="article:tag" content="读书">
 <meta property="article:tag" content="编程">
@@ -110,7 +110,7 @@
 <li>&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;<br>&#x4F7F;&#x7528;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#xFF0C;&#x5C06;&#x4E0B;&#x5217;&#x6570;&#x636E;&#x62DF;&#x5408;&#x4E3A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B; y = b0 + b1 * x</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = [<span class="number">208</span>, <span class="number">152</span>, <span class="number">113</span>,<span class="number">227</span>, <span class="number">137</span>, <span class="number">238</span>, <span class="number">178</span>, <span class="number">104</span>, <span class="number">191</span>, <span class="number">130</span>]</span><br><span class="line">y = [<span class="number">21.6</span>, <span class="number">15.5</span>, <span class="number">10.4</span>, <span class="number">31.0</span>, <span class="number">13.0</span>, <span class="number">32.4</span>, <span class="number">19.0</span>, <span class="number">10.4</span>, <span class="number">19.0</span>, <span class="number">11.8</span>]</span><br><span class="line"></span><br><span class="line">plt.plot(x, y,<span class="string">&apos;.&apos;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<span id="more"></span>
 
 <p><img src="/2023/08/08/reading-notes-5/output_1_0.png" alt="png"></p>
 <pre><code>167.8
@@ -151,11 +151,15 @@
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x3b011a0&gt;]
 </code></pre>
 <p><img src="/2023/08/08/reading-notes-5/output_8_1.png" alt="png"></p>
+<ol start="2">
+<li>&#x5982;&#x4F55;&#x6C42;&#x4E8C;&#x8FDB;&#x5236;&#x5185;1&#x7684;&#x4E2A;&#x6570;<br>&#x5DF2;&#x77E5;&#x4E00;&#x4E2A;&#x6570;n&#xFF0C;&#x6C42;n&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E2D;1&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x4E0D;&#x65AD;&#x6C42; n &amp; n -1, &#x76F4;&#x5230;n&#x4E3A;0&#x5373;&#x53EF;&#x3002;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int count_bit1(int num) {</span><br><span class="line">  int res = 0;</span><br><span class="line"></span><br><span class="line">  while (num != 0) {</span><br><span class="line">    num = num &amp; (num -1);</span><br><span class="line">    res++;</span><br><span class="line">  }</span><br><span class="line">  return res;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></li>
+<li>&#x5982;&#x4F55;&#x6C42;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x4F4D;&#x6570;<br>&#x5DF2;&#x77E5;&#x4E00;&#x4E2A;&#x6570;n&#xFF0C;&#x6C42;&#x5B83;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x4E0D;&#x65AD;&#x53F3;&#x79FB;&#x76F4;&#x5230;n&#x4E3A;0&#x4E3A;&#x6B62;&#x3002;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int count_bit(int num) {</span><br><span class="line">  int res = 0;</span><br><span class="line"></span><br><span class="line">  while (num != 0) {</span><br><span class="line">    num = num &gt;&gt; 1;</span><br><span class="line">    res++;</span><br><span class="line">  }</span><br><span class="line">  return res;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></li>
+</ol>
 <p>tips:</p>
 <ol>
 <li>python &#x5B89;&#x88C5;pip<br>python -m ensurepip &#x2013;default-pip</li>
 <li>&#x627E;&#x5230;python&#x5B89;&#x88C5;&#x8DEF;&#x5F84;<br>&#x8FDB;&#x5165;python shell<br>&#x8F93;&#x5165;<br>import sys<br>sys.path<br>&#x5C31;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;python&#x8DEF;&#x5F84;</li>
-<li></li>
+<li>&#x4F7F;&#x7528;jupyter lab &#x5148;&#x4F7F;&#x7528;python&#x5199;&#x51FA;&#x4EE3;&#x7801;&#x548C;&#x7ED8;&#x56FE;&#xFF0C;&#x800C;&#x540E;&#x8F6C;&#x6210;markdown&#x653E;&#x4E8E;&#x7B14;&#x8BB0;&#x4E2D;&#x3002;</li>
 </ol>
 
       
@@ -172,6 +176,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2023/08/08/arduino-3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          arduino 学习（3）—— 通信
+        
+      </div>
+    </a>
   
   
     <a href="/2023/08/07/arduino-2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -228,6 +241,10 @@
       <ul>
         
           <li>
+            <a href="/2023/08/08/arduino-3/">arduino 学习（3）—— 通信</a>
+          </li>
+        
+          <li>
             <a href="/2023/08/08/reading-notes-5/">（5）读书笔记 —— 心中有数</a>
           </li>
         
@@ -241,10 +258,6 @@
         
           <li>
             <a href="/2023/07/30/reading-notes-4/">（4）读书笔记 —— 呐喊</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/25/reading-notes-3/">（3）读书笔记 —— 且介亭杂文</a>
           </li>
         
       </ul>

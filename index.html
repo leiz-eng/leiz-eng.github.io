@@ -78,6 +78,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-arduino-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/08/arduino-3/" class="article-date">
+  <time class="dt-published" datetime="2023-08-08T07:24:55.000Z" itemprop="datePublished">2023-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/08/08/arduino-3/">arduino 学习（3）—— 通信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Arduino &#x4E0E; &#x5916;&#x90E8;&#x8BBE;&#x5907;&#x7684;&#x901A;&#x4FE1;&#x65B9;&#x5F0F;&#xFF0C;&#x5747;&#x5C5E;&#x4E32;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x76F8;&#x5BF9;&#x4E8E;&#x5E76;&#x884C;&#xFF0C;&#x5360;&#x7528;&#x7684;I/O&#x53E3;&#x5C11;&#xFF0C;&#x901F;&#x5EA6;&#x6162;&#x3002;&#x6709;&#x4E32;&#x53E3;, IIC, SPI&#x4E09;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x901A;&#x4FE1;&#x65B9;&#x5F0F;&#x3002;  </p>
+<ol>
+<li><p>&#x786C;&#x4EF6;&#x4E32;&#x53E3;&#x901A;&#x4FE1;</p></li></ol>
+        
+          <p class="article-more-link">
+            <a href="/2023/08/08/arduino-3/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leiz-eng.github.io/2023/08/08/arduino-3/" data-id="cll23lk810000wwv8c14r0bmc" data-title="arduino 学习（3）—— 通信" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-reading-notes-5" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/08/08/reading-notes-5/" class="article-date">
@@ -104,54 +151,11 @@
 <li>&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;<br>&#x4F7F;&#x7528;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#xFF0C;&#x5C06;&#x4E0B;&#x5217;&#x6570;&#x636E;&#x62DF;&#x5408;&#x4E3A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B; y = b0 + b1 * x</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = [<span class="number">208</span>, <span class="number">152</span>, <span class="number">113</span>,<span class="number">227</span>, <span class="number">137</span>, <span class="number">238</span>, <span class="number">178</span>, <span class="number">104</span>, <span class="number">191</span>, <span class="number">130</span>]</span><br><span class="line">y = [<span class="number">21.6</span>, <span class="number">15.5</span>, <span class="number">10.4</span>, <span class="number">31.0</span>, <span class="number">13.0</span>, <span class="number">32.4</span>, <span class="number">19.0</span>, <span class="number">10.4</span>, <span class="number">19.0</span>, <span class="number">11.8</span>]</span><br><span class="line"></span><br><span class="line">plt.plot(x, y,<span class="string">&apos;.&apos;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/2023/08/08/reading-notes-5/output_1_0.png" alt="png"></p>
-<pre><code>167.8
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">avg_x = <span class="built_in">sum</span>(x) / <span class="built_in">len</span>(x)</span><br><span class="line">avg_y = <span class="built_in">sum</span>(y) / <span class="built_in">len</span>(y)</span><br><span class="line"><span class="built_in">print</span>(avg_x)</span><br><span class="line"><span class="built_in">print</span>(avg_y)</span><br></pre></td></tr></table></figure>
-
-<pre><code>167.8
-18.410000000000004
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b1_dividend = <span class="number">0</span>;</span><br><span class="line">b1_divisor = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">    b1_dividend += x[i] * y[i] </span><br><span class="line">    b1_divisor += x[i] * x[i] </span><br><span class="line">b1 = (b1_dividend - <span class="built_in">len</span>(x) * avg_x * avg_y) / (b1_divisor - <span class="built_in">len</span>(x) * avg_x * avg_x)</span><br><span class="line">b1 </span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0.16123403754487142
-</code></pre>
-<p>&#x8FD9;&#x91CC;&#x6C42;b1&#x4E5F;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x5316;&#x7B80;&#x540E;&#x7684;&#x516C;&#x5F0F;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b1_dividend = <span class="number">0</span>;</span><br><span class="line">b1_divisor = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">    b1_dividend += (x[i]-avg_x) * (y[i] - avg_y) </span><br><span class="line">    b1_divisor += (x[i] - avg_x) *  (x[i] - avg_x)</span><br><span class="line">b1 = b1_dividend / b1_divisor</span><br><span class="line">b1 </span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0.16123403754487145
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b0 = avg_y - b1 * avg_x</span><br><span class="line">b0</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>-8.645071500029427
-</code></pre>
-<p>&#x5F97;&#x77E5;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x4E3A;y = -8.645 + 0.1612 * x<br>&#x5C06;&#x76F4;&#x7EBF;&#x548C;&#x70B9;&#x753B;&#x5728;&#x540C;&#x4E00;&#x5F20;&#x56FE;&#x4E0A;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x_new = np.linspace(<span class="number">100</span>, <span class="number">240</span>, <span class="number">10</span>)</span><br><span class="line">y_new = b0 + b1 * x_new</span><br><span class="line">plt.plot(x, y,<span class="string">&apos;.&apos;</span>)</span><br><span class="line">plt.plot(x_new, y_new, c=<span class="string">&apos;orange&apos;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x3b011a0&gt;]
-</code></pre>
-<p><img src="/2023/08/08/reading-notes-5/output_8_1.png" alt="png"></p>
-<p>tips:</p>
-<ol>
-<li>python &#x5B89;&#x88C5;pip<br>python -m ensurepip &#x2013;default-pip</li>
-<li>&#x627E;&#x5230;python&#x5B89;&#x88C5;&#x8DEF;&#x5F84;<br>&#x8FDB;&#x5165;python shell<br>&#x8F93;&#x5165;<br>import sys<br>sys.path<br>&#x5C31;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;python&#x8DEF;&#x5F84;</li>
-<li></li>
-</ol>
-
+        
+          <p class="article-more-link">
+            <a href="/2023/08/08/reading-notes-5/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -550,53 +554,6 @@
 
 
   
-    <article id="post-第一篇博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/07/14/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time class="dt-published" datetime="2023-07-14T08:53:19.000Z" itemprop="datePublished">2023-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/07/14/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">（1）这个博客怎么创立的？</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Something"><a href="#Something" class="headerlink" title="Something"></a>Something</h1><blockquote>
-<p>&#x79CD;&#x4E00;&#x68F5;&#x6811;&#x6700;&#x597D;&#x7684;&#x65F6;&#x95F4;&#x5728;&#x5341;&#x5E74;&#x524D;&#xFF0C;&#x5176;&#x6B21;&#x5C31;&#x662F;&#x73B0;&#x5728;&#x3002;</p>
-</blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2023/07/14/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leiz-eng.github.io/2023/07/14/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="clk7zcabg0003z0v81jem2mjx" data-title="（1）这个博客怎么创立的？" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA/" rel="tag">个人</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -647,6 +604,10 @@
       <ul>
         
           <li>
+            <a href="/2023/08/08/arduino-3/">arduino 学习（3）—— 通信</a>
+          </li>
+        
+          <li>
             <a href="/2023/08/08/reading-notes-5/">（5）读书笔记 —— 心中有数</a>
           </li>
         
@@ -660,10 +621,6 @@
         
           <li>
             <a href="/2023/07/30/reading-notes-4/">（4）读书笔记 —— 呐喊</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/25/reading-notes-3/">（3）读书笔记 —— 且介亭杂文</a>
           </li>
         
       </ul>
