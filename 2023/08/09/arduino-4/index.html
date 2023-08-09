@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>arduino 学习（4）—— 存储和无线通信（红外） | Hope</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="&amp;#x65AD;&amp;#x7535;&amp;#x4E5F;&amp;#x80FD;&amp;#x4FDD;&amp;#x5B58;&amp;#x6570;&amp;#x636E; &amp;#x2014;&amp;#x2014; EEPROM &amp;#x7C7B;&amp;#x5E93;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;EEPROM (Electrically Erasable Programmable Read-Only Memory)&amp;#x7535;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arduino 学习（4）—— 存储和无线通信（红外）">
+<meta property="og:url" content="https://leiz-eng.github.io/2023/08/09/arduino-4/index.html">
+<meta property="og:site_name" content="Hope">
+<meta property="og:description" content="&amp;#x65AD;&amp;#x7535;&amp;#x4E5F;&amp;#x80FD;&amp;#x4FDD;&amp;#x5B58;&amp;#x6570;&amp;#x636E; &amp;#x2014;&amp;#x2014; EEPROM &amp;#x7C7B;&amp;#x5E93;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;EEPROM (Electrically Erasable Programmable Read-Only Memory)&amp;#x7535;&amp;#">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T151243.png">
+<meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T153505.png">
+<meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T154103.png">
+<meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T154114.png">
+<meta property="article:published_time" content="2023-08-09T06:46:01.000Z">
+<meta property="article:modified_time" content="2023-08-09T07:42:39.221Z">
+<meta property="article:author" content="Lei Zhao">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T151243.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hope" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hope</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">分享即是快乐</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leiz-eng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-arduino-4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/09/arduino-4/" class="article-date">
+  <time class="dt-published" datetime="2023-08-09T06:46:01.000Z" itemprop="datePublished">2023-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      arduino 学习（4）—— 存储和无线通信（红外）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>&#x65AD;&#x7535;&#x4E5F;&#x80FD;&#x4FDD;&#x5B58;&#x6570;&#x636E; &#x2014;&#x2014; EEPROM &#x7C7B;&#x5E93;&#x7684;&#x4F7F;&#x7528;<br>EEPROM (Electrically Erasable Programmable Read-Only Memory)&#x7535;&#x53EF;&#x64E6;&#x53EF;&#x7F16;&#x7A0B;&#x53EA;&#x8BFB;&#x5BC4;&#x5B58;&#x5668;<ol>
+<li>&#x7C7B;&#x5E93;&#x6210;&#x5458;&#x51FD;&#x6570;<br> write()<br> read()</li>
+<li>&#x5199;&#x5165;&#x64CD;&#x4F5C;<br> EEPROM&#x53EA;&#x6709;100000&#x6B21;&#x7684;&#x64E6;&#x5199;&#x5BFF;&#x547D;&#xFF0C;&#x907F;&#x514D;&#x9891;&#x7E41;&#x64E6;&#x5199;&#x3002;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;EEPROM.h&gt;</span><br><span class="line"></span><br><span class="line">int addr = 0;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  int val = analogRead(0) / 4;</span><br><span class="line">  Serial.println(val);</span><br><span class="line">  </span><br><span class="line">  EEPROM.write(addr, val);</span><br><span class="line"></span><br><span class="line">  addr = addr + 1;</span><br><span class="line">  if (addr == 512)</span><br><span class="line">    addr = 0;</span><br><span class="line"></span><br><span class="line">  delay(500);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;EEPROM.h&gt;</span><br><span class="line"></span><br><span class="line">int address = 0;</span><br><span class="line">byte value;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  value = EEPROM.read(address);</span><br><span class="line">  Serial.print(address);</span><br><span class="line">  Serial.print(&quot;\t&quot;);</span><br><span class="line">  Serial.print(value, DEC);</span><br><span class="line">  Serial.println();</span><br><span class="line"></span><br><span class="line">  address = address + 1;</span><br><span class="line"></span><br><span class="line">  if (address == 512)</span><br><span class="line">    address =0;</span><br><span class="line"></span><br><span class="line">  delay(500);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>&#x64E6;&#x9664;&#x64CD;&#x4F5C;<br> &#x5373;&#x4E3A;&#x5199;0</li>
+<li>&#x5B58;&#x50A8;&#x5404;&#x7C7B;&#x578B;&#x6570;&#x636E;&#x5230;EEPROM<br> &#x4E0A;&#x9762;&#x662F;&#x628A;&#x4E00;&#x4E2A;byte&#x578B;&#x6570;&#x636E;&#x5B58;&#x5165;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5171;&#x7528;&#x4F53;&#x7C7B;&#x578B;&#x7ED3;&#x6784; union&#x3002;<br>&#x5199;&#x5165;  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;EEPROM.h&gt;</span><br><span class="line"></span><br><span class="line">int addr = 0;</span><br><span class="line"></span><br><span class="line">union data {</span><br><span class="line">  float a;</span><br><span class="line">  byte b[4];</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">data c;</span><br><span class="line">int led = 13;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  c.a = 98.132;</span><br><span class="line"></span><br><span class="line">  for (int i = 0; i &lt; 4; i++) {</span><br><span class="line">    EEPROM.write(i, c.b[i]);</span><br><span class="line">  }</span><br><span class="line">  pinMode(led, OUTPUT);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  digitalWrite(led, HIGH);</span><br><span class="line">  delay(1000);</span><br><span class="line">  digitalWrite(led, LOW);</span><br><span class="line">  delay(1000);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<p>&#x8BFB;&#x53D6;  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;EEPROM.h&gt;</span><br><span class="line"></span><br><span class="line">union data {</span><br><span class="line">  float a;</span><br><span class="line">  byte b[4];</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">int addr = 0;</span><br><span class="line">data c;</span><br><span class="line">int led = 13;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  for (int i = 0; i &lt; 4; i++) {</span><br><span class="line">    c.b[i] = EEPROM.read(i);</span><br><span class="line">  }</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  Serial.println(c.a, 4);</span><br><span class="line">  delay(1000);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>&#x4FDD;&#x5B58;&#x5927;&#x91CF;&#x6570;&#x636E; &#x2014;&#x2014; SD&#x5361;&#x7C7B;&#x5E93;&#x7684;&#x4F7F;&#x7528;<br>SD &#xFF08;Secure Digital Memory Card&#xFF09; </p>
+<ol>
+<li>&#x683C;&#x5F0F;&#x5316;SD&#x5361;</li>
+<li>SD&#x5361;&#x7C7B;&#x5E93;&#x6210;&#x5458;&#x51FD;&#x6570;</li>
+<li>SD&#x5361; &#x8BFB;/&#x5199;&#x6A21;&#x5757;<br> &#x5C06;&#x4F20;&#x611F;&#x5668;&#x7684;&#x6570;&#x636E;&#x8BB0;&#x5F55;/&#x8BFB;&#x51FA;<br> <img src="/2023/08/09/arduino-4/2023-08-09T151243.png" alt="2023-08-09T151243"></li>
+<li>&#x521B;&#x5EFA;&#x6587;&#x4EF6;</li>
+<li>&#x5220;&#x9664;&#x6587;&#x4EF6;<br> 6 .&#x5199;&#x6587;&#x4EF6;</li>
+<li>&#x8BFB;&#x6587;&#x4EF6;</li>
+</ol>
+</li>
+<li><p>&#x65E0;&#x7EBF;&#x901A;&#x4FE1; &#x2014;&#x2014; &#x7EA2;&#x5916;&#x9065;&#x63A7;<br>Arduino&#x53EF;&#x4F7F;&#x7528;&#x7684;&#x9632;&#x7EBF;&#x901A;&#x4FE1;&#x65B9;&#x5F0F;&#x4F17;&#x591A;&#xFF0C;ZigBee&#x3001;WiFi&#x548C;&#x84DD;&#x7259;&#x7B49;&#x3002;<br>&#x4E32;&#x53E3;&#x900F;&#x4F20;&#x6A21;&#x5757;<br>SPI&#x63A5;&#x53E3;&#x7684;&#x65E0;&#x7EBF;&#x6A21;&#x5757;&#xFF0C;Arduino Wifi&#x6269;&#x5C55;&#x677F;</p>
+<ol>
+<li><p>&#x4E00;&#x4F53;&#x5316;&#x7EA2;&#x5916;&#x63A5;&#x6536;&#x5934;<br> &#x63A5;&#x6536;&#x7EA2;&#x5916;&#x4FE1;&#x53F7;&#x5E76;&#x8FD8;&#x539F;&#x53D1;&#x5C04;&#x7AEF;&#x7684;&#x6CE2;&#x5F62;&#x4FE1;&#x53F7;&#xFF0C;&#x901A;&#x5E38;&#x4E00;&#x4F53;&#x5316;&#x7684;&#x90FD;&#x662F;&#x5728;38kHz&#x5DE6;&#x53F3;&#x3002;</p>
+</li>
+<li><p>&#x7EA2;&#x5916;&#x9065;&#x63A7;&#x5668;<br> NEC&#x7F16;&#x7801;<br> <img src="/2023/08/09/arduino-4/2023-08-09T153505.png" alt="2023-08-09T153505"><br> <img src="/2023/08/09/arduino-4/2023-08-09T154103.png" alt="2023-08-09T154103"></p>
+</li>
+<li><p>&#x7EA2;&#x5916;&#x53D1;&#x5149;&#x4E8C;&#x6781;&#x7BA1;<br> IRremote&#x5E93;<br> <img src="/2023/08/09/arduino-4/2023-08-09T154114.png" alt="2023-08-09T154114"></p>
+</li>
+<li><p>&#x7C7B;&#x5E93;&#x6210;&#x5458;&#x51FD;&#x6570;</p>
+</li>
+<li><p>&#x7EA2;&#x5916;&#x63A5;&#x6536;</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>tips&#xFF1A;</p>
+<ol>
+<li>&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x4E2D;&#x6CA1;&#x6709;&#x7684;&#x786C;&#x4EF6;<ol>
+<li>SPI&#x7684;&#x6570;&#x5B57;&#x7535;&#x4F4D;&#x5668; AD5206 &#x6CA1;&#x6709;</li>
+<li>&#x591A;&#x4E2A;&#x4E32;&#x53E3;&#x901A;&#x4FE1;&#x9700;&#x8981;&#x591A;&#x4E2A;Arduino</li>
+<li>LM35&#x6E29;&#x5EA6;&#x4F20;&#x611F;&#x5668;&#x597D;&#x50CF;&#x574F;&#x6389;&#x4E86;</li>
+<li>SD&#x5361;&#x6A21;&#x5757;</li>
+<li>DGT11&#x6E29;&#x6E7F;&#x5EA6;&#x68C0;&#x6D4B;&#x6A21;&#x5757;</li>
+<li>&#x5149;&#x654F;&#x6A21;&#x5757; &#x76EE;&#x524D;&#x53EA;&#x6709;&#x4E00;&#x6839;&#x5149;&#x654F;&#x7535;&#x963B;</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leiz-eng.github.io/2023/08/09/arduino-4/" data-id="cll3f2sh00000bov81873g5tm" data-title="arduino 学习（4）—— 存储和无线通信（红外）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/08/08/arduino-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">arduino 学习（3）—— 通信</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA/" rel="tag">个人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 10px;">个人</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 20px;">读书</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/08/09/arduino-4/">arduino 学习（4）—— 存储和无线通信（红外）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/08/arduino-3/">arduino 学习（3）—— 通信</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/08/reading-notes-5/">（5）读书笔记 —— 心中有数</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/07/arduino-2/">arduino 学习（2）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/02/arduino-1/">arduino 学习（1）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Lei Zhao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
