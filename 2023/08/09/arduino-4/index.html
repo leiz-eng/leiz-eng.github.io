@@ -4,21 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>arduino 学习（4）—— 存储和无线通信（红外） | Hope</title>
+  <title>arduino 学习（4） | Hope</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="&amp;#x65AD;&amp;#x7535;&amp;#x4E5F;&amp;#x80FD;&amp;#x4FDD;&amp;#x5B58;&amp;#x6570;&amp;#x636E; &amp;#x2014;&amp;#x2014; EEPROM &amp;#x7C7B;&amp;#x5E93;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;EEPROM (Electrically Erasable Programmable Read-Only Memory)&amp;#x7535;&amp;#">
+  <meta name="description" content="&amp;#x5B58;&amp;#x50A8;&amp;#x548C;&amp;#x65E0;&amp;#x7EBF;&amp;#x901A;&amp;#x4FE1;&amp;#xFF08;&amp;#x7EA2;&amp;#x5916;&amp;#xFF09;  &amp;#x65AD;&amp;#x7535;&amp;#x4E5F;&amp;#x80FD;&amp;#x4FDD;&amp;#x5B58;&amp;#x6570;&amp;#x636E; &amp;#x2014;&amp;#x2014; EEPROM &amp;#x7C7B;&amp;#x5E93;&amp;#x76">
 <meta property="og:type" content="article">
-<meta property="og:title" content="arduino 学习（4）—— 存储和无线通信（红外）">
+<meta property="og:title" content="arduino 学习（4）">
 <meta property="og:url" content="https://leiz-eng.github.io/2023/08/09/arduino-4/index.html">
 <meta property="og:site_name" content="Hope">
-<meta property="og:description" content="&amp;#x65AD;&amp;#x7535;&amp;#x4E5F;&amp;#x80FD;&amp;#x4FDD;&amp;#x5B58;&amp;#x6570;&amp;#x636E; &amp;#x2014;&amp;#x2014; EEPROM &amp;#x7C7B;&amp;#x5E93;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;EEPROM (Electrically Erasable Programmable Read-Only Memory)&amp;#x7535;&amp;#">
+<meta property="og:description" content="&amp;#x5B58;&amp;#x50A8;&amp;#x548C;&amp;#x65E0;&amp;#x7EBF;&amp;#x901A;&amp;#x4FE1;&amp;#xFF08;&amp;#x7EA2;&amp;#x5916;&amp;#xFF09;  &amp;#x65AD;&amp;#x7535;&amp;#x4E5F;&amp;#x80FD;&amp;#x4FDD;&amp;#x5B58;&amp;#x6570;&amp;#x636E; &amp;#x2014;&amp;#x2014; EEPROM &amp;#x7C7B;&amp;#x5E93;&amp;#x76">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T151243.png">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T153505.png">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T154103.png">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T154114.png">
+<meta property="og:image" content="https://leiz-eng.github.io/2023/08/09/arduino-4/2023-08-09T163403.png">
 <meta property="article:published_time" content="2023-08-09T06:46:01.000Z">
-<meta property="article:modified_time" content="2023-08-09T07:42:39.221Z">
+<meta property="article:modified_time" content="2023-08-10T07:14:56.183Z">
 <meta property="article:author" content="Lei Zhao">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
@@ -99,7 +100,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      arduino 学习（4）—— 存储和无线通信（红外）
+      arduino 学习（4）
     </h1>
   
 
@@ -107,8 +108,10 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <ol>
-<li>&#x65AD;&#x7535;&#x4E5F;&#x80FD;&#x4FDD;&#x5B58;&#x6570;&#x636E; &#x2014;&#x2014; EEPROM &#x7C7B;&#x5E93;&#x7684;&#x4F7F;&#x7528;<br>EEPROM (Electrically Erasable Programmable Read-Only Memory)&#x7535;&#x53EF;&#x64E6;&#x53EF;&#x7F16;&#x7A0B;&#x53EA;&#x8BFB;&#x5BC4;&#x5B58;&#x5668;<ol>
+        <p><strong>&#x5B58;&#x50A8;&#x548C;&#x65E0;&#x7EBF;&#x901A;&#x4FE1;&#xFF08;&#x7EA2;&#x5916;&#xFF09;</strong></p>
+<ol>
+<li>&#x65AD;&#x7535;&#x4E5F;&#x80FD;&#x4FDD;&#x5B58;&#x6570;&#x636E; &#x2014;&#x2014; EEPROM &#x7C7B;&#x5E93;&#x7684;&#x4F7F;&#x7528;<br>EEPROM (Electrically Erasable Programmable Read-Only Memory)&#x7535;&#x53EF;&#x64E6;&#x53EF;&#x7F16;&#x7A0B;&#x53EA;&#x8BFB;&#x5BC4;&#x5B58;&#x5668;<span id="more"></span>
+<ol>
 <li>&#x7C7B;&#x5E93;&#x6210;&#x5458;&#x51FD;&#x6570;<br> write()<br> read()</li>
 <li>&#x5199;&#x5165;&#x64CD;&#x4F5C;<br> EEPROM&#x53EA;&#x6709;100000&#x6B21;&#x7684;&#x64E6;&#x5199;&#x5BFF;&#x547D;&#xFF0C;&#x907F;&#x514D;&#x9891;&#x7E41;&#x64E6;&#x5199;&#x3002;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;EEPROM.h&gt;</span><br><span class="line"></span><br><span class="line">int addr = 0;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  int val = analogRead(0) / 4;</span><br><span class="line">  Serial.println(val);</span><br><span class="line">  </span><br><span class="line">  EEPROM.write(addr, val);</span><br><span class="line"></span><br><span class="line">  addr = addr + 1;</span><br><span class="line">  if (addr == 512)</span><br><span class="line">    addr = 0;</span><br><span class="line"></span><br><span class="line">  delay(500);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li>&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;EEPROM.h&gt;</span><br><span class="line"></span><br><span class="line">int address = 0;</span><br><span class="line">byte value;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  value = EEPROM.read(address);</span><br><span class="line">  Serial.print(address);</span><br><span class="line">  Serial.print(&quot;\t&quot;);</span><br><span class="line">  Serial.print(value, DEC);</span><br><span class="line">  Serial.println();</span><br><span class="line"></span><br><span class="line">  address = address + 1;</span><br><span class="line"></span><br><span class="line">  if (address == 512)</span><br><span class="line">    address =0;</span><br><span class="line"></span><br><span class="line">  delay(500);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
@@ -140,11 +143,20 @@
 </li>
 <li><p>&#x7C7B;&#x5E93;&#x6210;&#x5458;&#x51FD;&#x6570;</p>
 </li>
-<li><p>&#x7EA2;&#x5916;&#x63A5;&#x6536;</p>
+<li><p>&#x7EA2;&#x5916;&#x63A5;&#x6536;<br> IRremote&#x4E00;&#x76F4;&#x5728;&#x66F4;&#x65B0;&#xFF0C;&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x4E86;&#x3002;<br> &#x8FD9;&#x662F;&#x5176;&#x4E2D;&#x7684;SimpleReceiver.ino &#x6587;&#x4EF6;</p>
 </li>
 </ol>
 </li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#define DECODE_NEC          // Includes Apple and Onkyo</span><br><span class="line"></span><br><span class="line">#include &lt;Arduino.h&gt;</span><br><span class="line"></span><br><span class="line">#include &quot;PinDefinitionsAndMore.h&quot; // Define macros for input and output pin etc.</span><br><span class="line">#include &lt;IRremote.hpp&gt;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">    Serial.begin(9600);</span><br><span class="line">    // Just to know which program is running on my Arduino</span><br><span class="line">    Serial.println(F(&quot;START &quot; __FILE__ &quot; from &quot; __DATE__ &quot;\r\nUsing library version &quot; VERSION_IRREMOTE));</span><br><span class="line"></span><br><span class="line">    // Start the receiver and if not 3. parameter specified, take LED_BUILTIN pin from the internal boards definition as default feedback LED</span><br><span class="line">    IrReceiver.begin(IR_RECEIVE_PIN, ENABLE_LED_FEEDBACK);</span><br><span class="line"></span><br><span class="line">    Serial.print(F(&quot;Ready to receive IR signals of protocols: &quot;));</span><br><span class="line">    printActiveIRProtocols(&amp;Serial);</span><br><span class="line">    Serial.println(F(&quot;at pin &quot; STR(IR_RECEIVE_PIN)));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">    /*</span><br><span class="line">     * Check if received data is available and if yes, try to decode it.</span><br><span class="line">     * Decoded result is in the IrReceiver.decodedIRData structure.</span><br><span class="line">     *</span><br><span class="line">     * E.g. command is in IrReceiver.decodedIRData.command</span><br><span class="line">     * address is in command is in IrReceiver.decodedIRData.address</span><br><span class="line">     * and up to 32 bit raw data in IrReceiver.decodedIRData.decodedRawData</span><br><span class="line">     */</span><br><span class="line">    if (IrReceiver.decode()) {</span><br><span class="line"></span><br><span class="line">        /*</span><br><span class="line">         * Print a short summary of received data</span><br><span class="line">         */</span><br><span class="line">        IrReceiver.printIRResultShort(&amp;Serial);</span><br><span class="line">        IrReceiver.printIRSendUsage(&amp;Serial);</span><br><span class="line">        if (IrReceiver.decodedIRData.protocol == UNKNOWN) {</span><br><span class="line">            Serial.println(F(&quot;Received noise or an unknown (or not yet enabled) protocol&quot;));</span><br><span class="line">            // We have an unknown protocol here, print more info</span><br><span class="line">            IrReceiver.printIRResultRawFormatted(&amp;Serial, true);</span><br><span class="line">        }</span><br><span class="line">        Serial.println();</span><br><span class="line"></span><br><span class="line">        /*</span><br><span class="line">         * !!!Important!!! Enable receiving of the next value,</span><br><span class="line">         * since receiving has stopped after the end of the current received data packet.</span><br><span class="line">         */</span><br><span class="line">        IrReceiver.resume(); // Enable receiving of the next value</span><br><span class="line"></span><br><span class="line">        /*</span><br><span class="line">         * Finally, check the received data and perform actions according to the received command</span><br><span class="line">         */</span><br><span class="line">        if (IrReceiver.decodedIRData.command == 0x10) {</span><br><span class="line">            // do something</span><br><span class="line">        } else if (IrReceiver.decodedIRData.command == 0x11) {</span><br><span class="line">            // do something else</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/2023/08/09/arduino-4/2023-08-09T163403.png" alt="2023-08-09T163403"><br>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8BFB;&#x51FA;&#x4E00;&#x4E9B;&#x7EA2;&#x5916;&#x503C;&#x3002;<br>      6. &#x7EA2;&#x5916;&#x53D1;&#x5C04;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * SimpleSender.cpp</span><br><span class="line"> *</span><br><span class="line"> *  Demonstrates sending IR codes in standard format with address and command</span><br><span class="line"> *  An extended example for sending can be found as SendDemo.</span><br><span class="line"> *</span><br><span class="line"> *  Copyright (C) 2020-2022  Armin Joachimsmeyer</span><br><span class="line"> *  armin.joachimsmeyer@gmail.com</span><br><span class="line"> *</span><br><span class="line"> *  This file is part of Arduino-IRremote https://github.com/Arduino-IRremote/Arduino-IRremote.</span><br><span class="line"> *</span><br><span class="line"> *  MIT License</span><br><span class="line"> */</span><br><span class="line">#include &lt;Arduino.h&gt;</span><br><span class="line"></span><br><span class="line">#define DISABLE_CODE_FOR_RECEIVER // Disables restarting receiver after each send. Saves 450 bytes program memory and 269 bytes RAM if receiving functions are not used.</span><br><span class="line">//#define SEND_PWM_BY_TIMER         // Disable carrier PWM generation in software and use (restricted) hardware PWM.</span><br><span class="line">//#define USE_NO_SEND_PWM           // Use no carrier PWM, just simulate an active low receiver signal. Overrides SEND_PWM_BY_TIMER definition</span><br><span class="line"></span><br><span class="line">#include &quot;PinDefinitionsAndMore.h&quot; // Define macros for input and output pin etc.</span><br><span class="line">#include &lt;IRremote.hpp&gt;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">    pinMode(LED_BUILTIN, OUTPUT);</span><br><span class="line"></span><br><span class="line">    Serial.begin(115200);</span><br><span class="line"></span><br><span class="line">    // Just to know which program is running on my Arduino</span><br><span class="line">    Serial.println(F(&quot;START &quot; __FILE__ &quot; from &quot; __DATE__ &quot;\r\nUsing library version &quot; VERSION_IRREMOTE));</span><br><span class="line">    Serial.print(F(&quot;Send IR signals at pin &quot;));</span><br><span class="line">    Serial.println(IR_SEND_PIN);</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * The IR library setup. That&apos;s all!</span><br><span class="line">     */</span><br><span class="line">//    IrSender.begin(); // Start with IR_SEND_PIN as send pin and if NO_LED_FEEDBACK_CODE is NOT defined, enable feedback LED at default feedback LED pin</span><br><span class="line">    IrSender.begin(DISABLE_LED_FEEDBACK); // Start with IR_SEND_PIN as send pin and disable feedback LED at default feedback LED pin</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"> * Set up the data to be sent.</span><br><span class="line"> * For most protocols, the data is build up with a constant 8 (or 16 byte) address</span><br><span class="line"> * and a variable 8 bit command.</span><br><span class="line"> * There are exceptions like Sony and Denon, which have 5 bit address.</span><br><span class="line"> */</span><br><span class="line">uint8_t sCommand = 0x34;</span><br><span class="line">uint8_t sRepeats = 0;</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">    /*</span><br><span class="line">     * Print current send values</span><br><span class="line">     */</span><br><span class="line">    Serial.println();</span><br><span class="line">    Serial.print(F(&quot;Send now: address=0x00, command=0x&quot;));</span><br><span class="line">    Serial.print(sCommand, HEX);</span><br><span class="line">    Serial.print(F(&quot;, repeats=&quot;));</span><br><span class="line">    Serial.print(sRepeats);</span><br><span class="line">    Serial.println();</span><br><span class="line"></span><br><span class="line">    Serial.println(F(&quot;Send standard NEC with 8 bit address&quot;));</span><br><span class="line">    Serial.flush();</span><br><span class="line"></span><br><span class="line">    // Receiver output for the first loop must be: Protocol=NEC Address=0x102 Command=0x34 Raw-Data=0xCB340102 (32 bits)</span><br><span class="line">    IrSender.sendNEC(0x00, sCommand, sRepeats);</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * Increment send values</span><br><span class="line">     */</span><br><span class="line">    sCommand += 0x11;</span><br><span class="line">    sRepeats++;</span><br><span class="line">    // clip repeats at 4</span><br><span class="line">    if (sRepeats &gt; 4) {</span><br><span class="line">        sRepeats = 4;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    delay(1000);  // delay must be greater than 5 ms (RECORD_GAP_MICROS), otherwise the receiver sees it as one long signal</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<br>
+    7. &#x9065;&#x63A7;&#x5BB6;&#x7535;&#x8BBE;&#x5907;<br>
+      &#x9700;&#x8981;&#x63A5;&#x53D7;&#x5BB6;&#x7535;&#x7EA2;&#x5916;&#x7684;RAW&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x7EA2;&#x5916;&#x53D1;&#x5C04;&#x5668;&#x53D1;&#x5C04;&#x51FA;&#x53BB;&#x3002;
+      
+<br>
+
 <p>tips&#xFF1A;</p>
 <ol>
 <li>&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x4E2D;&#x6CA1;&#x6709;&#x7684;&#x786C;&#x4EF6;<ol>
@@ -161,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leiz-eng.github.io/2023/08/09/arduino-4/" data-id="cll3f2sh00000bov81873g5tm" data-title="arduino 学习（4）—— 存储和无线通信（红外）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://leiz-eng.github.io/2023/08/09/arduino-4/" data-id="cll3f2sh00000bov81873g5tm" data-title="arduino 学习（4）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -172,6 +184,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2023/08/10/arduino-5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          arduino 学习（5）
+        
+      </div>
+    </a>
   
   
     <a href="/2023/08/08/arduino-3/" id="article-nav-older" class="article-nav-link-wrap">
@@ -206,7 +227,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 10px;">个人</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 20px;">读书</a>
+      <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 10px;">个人</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 15px;">读书</a>
     </div>
   </div>
 
@@ -228,7 +249,15 @@
       <ul>
         
           <li>
-            <a href="/2023/08/09/arduino-4/">arduino 学习（4）—— 存储和无线通信（红外）</a>
+            <a href="/2023/08/15/arduino-6/">arduino 学习（6）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/10/arduino-5/">arduino 学习（5）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/09/arduino-4/">arduino 学习（4）</a>
           </li>
         
           <li>
@@ -237,14 +266,6 @@
         
           <li>
             <a href="/2023/08/08/reading-notes-5/">（5）读书笔记 —— 心中有数</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/07/arduino-2/">arduino 学习（2）</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/02/arduino-1/">arduino 学习（1）</a>
           </li>
         
       </ul>
