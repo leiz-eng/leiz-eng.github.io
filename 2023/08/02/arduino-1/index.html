@@ -1,18 +1,28 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Lei Zhao">
+  <meta name="keywords" content="编程 读书 摄影">
   
-  <title>arduino 学习（1） | Hope</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="arduino &amp;#x5B98;&amp;#x65B9;&amp;#x7F51;&amp;#x7AD9;https:&#x2F;&#x2F;www.arduino.cc&#x2F;arduino &amp;#x4E2D;&amp;#x6587;&amp;#x793E;&amp;#x533A;https:&#x2F;&#x2F;arduino.me&#x2F;s&#x2F;arduino-getting-started?aid&#x3D;320    &amp;#x4ECB;&amp;#x7ECD;arduino  &amp;#x7535;&amp;#x6E90;">
+    <meta name="description" content="arduino &amp;#x5B98;&amp;#x65B9;&amp;#x7F51;&amp;#x7AD9;https:&#x2F;&#x2F;www.arduino.cc&#x2F;arduino &amp;#x4E2D;&amp;#x6587;&amp;#x793E;&amp;#x533A;https:&#x2F;&#x2F;arduino.me&#x2F;s&#x2F;arduino-getting-started?aid&#x3D;320    &amp;#x4ECB;&amp;#x7ECD;arduino  &amp;#x7535;&amp;#x6E90;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="arduino 学习（1）">
 <meta property="og:url" content="https://leiz-eng.github.io/2023/08/02/arduino-1/index.html">
 <meta property="og:site_name" content="Hope">
 <meta property="og:description" content="arduino &amp;#x5B98;&amp;#x65B9;&amp;#x7F51;&amp;#x7AD9;https:&#x2F;&#x2F;www.arduino.cc&#x2F;arduino &amp;#x4E2D;&amp;#x6587;&amp;#x793E;&amp;#x533A;https:&#x2F;&#x2F;arduino.me&#x2F;s&#x2F;arduino-getting-started?aid&#x3D;320    &amp;#x4ECB;&amp;#x7ECD;arduino  &amp;#x7535;&amp;#x6E90;">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://arduino.me/storage/v1/object/public/image/c991ef5e83dd2012e915e8c1f872870f.webp">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/02/arduino-1/2023-08-02T151750.png">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/02/arduino-1/2023-08-02T152006.png">
@@ -31,27 +41,61 @@
 <meta property="article:modified_time" content="2023-08-05T12:41:40.487Z">
 <meta property="article:author" content="Lei Zhao">
 <meta property="article:tag" content="编程">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://arduino.me/storage/v1/object/public/image/c991ef5e83dd2012e915e8c1f872870f.webp">
   
-    <link rel="alternate" href="/atom.xml" title="Hope" type="application/atom+xml">
   
   
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <title>arduino 学习（1） - Hope</title>
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"leiz-eng.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
   
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -59,71 +103,213 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hope</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">分享即是快乐</a>
-        </h2>
-      
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>许愿</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="arduino 学习（1）"></span>
+          
+        </div>
+
         
-          <a class="main-nav-link" href="/">Home</a>
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Lei Zhao
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-02 14:50" pubdate>
+          星期三, 八月 2日 2023, 2:50 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <!-- compatible with older versions-->
+          12k 字
         
-      </nav>
-      <nav id="sub-nav">
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
         
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leiz-eng.github.io"></form>
+          <!-- compatible with older versions-->
+          100 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-arduino-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/08/02/arduino-1/" class="article-date">
-  <time class="dt-published" datetime="2023-08-02T06:50:59.000Z" itemprop="datePublished">2023-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      arduino 学习（1）
-    </h1>
-  
+</div>
 
-      </header>
+  </header>
+
+  <main>
     
-    <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>arduino &#x5B98;&#x65B9;&#x7F51;&#x7AD9;<br><a target="_blank" rel="noopener" href="https://www.arduino.cc/">https://www.arduino.cc/</a><br>arduino &#x4E2D;&#x6587;&#x793E;&#x533A;<br><a target="_blank" rel="noopener" href="https://arduino.me/s/arduino-getting-started?aid=320">https://arduino.me/s/arduino-getting-started?aid=320</a>  </p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">arduino 学习（1）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>arduino &#x5B98;&#x65B9;&#x7F51;&#x7AD9;<br><a target="_blank" rel="noopener" href="https://www.arduino.cc/">https://www.arduino.cc/</a><br>arduino &#x4E2D;&#x6587;&#x793E;&#x533A;<br><a target="_blank" rel="noopener" href="https://arduino.me/s/arduino-getting-started?aid=320">https://arduino.me/s/arduino-getting-started?aid=320</a>  </p>
 <ol>
-<li>&#x4ECB;&#x7ECD;arduino<br><img src="https://arduino.me/storage/v1/object/public/image/c991ef5e83dd2012e915e8c1f872870f.webp" alt="i-want-test-picture"></li>
+<li>&#x4ECB;&#x7ECD;arduino<br><img src="https://arduino.me/storage/v1/object/public/image/c991ef5e83dd2012e915e8c1f872870f.webp" srcset="/img/loading.gif" lazyload alt="i-want-test-picture"></li>
 </ol>
 <p>&#x7535;&#x6E90;&#xFF08;Power&#xFF09;&#xFF1A;</p>
 <p>Arduino UNO&#x6709;&#x4E09;&#x79CD;&#x4F9B;&#x7535;&#x65B9;&#x5F0F;&#xFF1A;</p>
@@ -161,190 +347,393 @@
 <p>Reset&#xFF1A;&#x590D;&#x4F4D;&#x7AEF;&#x53E3;&#x3002;&#x63A5;&#x4F4E;&#x7535;&#x5E73;&#x4F1A;&#x4F7F;Arduino&#x590D;&#x4F4D;&#xFF0C;&#x590D;&#x4F4D;&#x6309;&#x952E;&#x6309;&#x4E0B;&#x65F6;&#xFF0C;&#x4F1A;&#x4F7F;&#x8BE5;&#x7AEF;&#x53E3;&#x63A5;&#x5230;&#x4F4E;&#x7535;&#x5E73;&#xFF0C;&#x4ECE;&#x800C;&#x8BA9;Arduino&#x590D;&#x4F4D;&#x3002;</p>
 <ol start="2">
 <li><p>&#x70B9;&#x706F;&#x7A0B;&#x5E8F;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">  Blink</span><br><span class="line"></span><br><span class="line">  Turns an LED on for one second, then off for one second, repeatedly.</span><br><span class="line"></span><br><span class="line">  Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO</span><br><span class="line">  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to</span><br><span class="line">  the correct LED pin independent of which board is used.</span><br><span class="line">  If you want to know what pin the on-board LED is connected to on your Arduino</span><br><span class="line">  model, check the Technical Specs of your board at:</span><br><span class="line">  https://www.arduino.cc/en/Main/Products</span><br><span class="line"></span><br><span class="line">  modified 8 May 2014</span><br><span class="line">  by Scott Fitzgerald</span><br><span class="line">  modified 2 Sep 2016</span><br><span class="line">  by Arturo Guadalupi</span><br><span class="line">  modified 8 Sep 2016</span><br><span class="line">  by Colby Newman</span><br><span class="line"></span><br><span class="line">  This example code is in the public domain.</span><br><span class="line"></span><br><span class="line">  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">// the setup function runs once when you press reset or power the board</span><br><span class="line">void setup() {</span><br><span class="line">  // initialize digital pin LED_BUILTIN as an output.</span><br><span class="line">  pinMode(LED_BUILTIN, OUTPUT);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// the loop function runs over and over again forever</span><br><span class="line">void loop() {</span><br><span class="line">  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)</span><br><span class="line">  delay(1000);                      // wait for a second</span><br><span class="line">  digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW</span><br><span class="line">  delay(1000);                      // wait for a second</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-comment">/*</span><br><span class="hljs-comment">  Blink</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  Turns an LED on for one second, then off for one second, repeatedly.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO</span><br><span class="hljs-comment">  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to</span><br><span class="hljs-comment">  the correct LED pin independent of which board is used.</span><br><span class="hljs-comment">  If you want to know what pin the on-board LED is connected to on your Arduino</span><br><span class="hljs-comment">  model, check the Technical Specs of your board at:</span><br><span class="hljs-comment">  https://www.arduino.cc/en/Main/Products</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  modified 8 May 2014</span><br><span class="hljs-comment">  by Scott Fitzgerald</span><br><span class="hljs-comment">  modified 2 Sep 2016</span><br><span class="hljs-comment">  by Arturo Guadalupi</span><br><span class="hljs-comment">  modified 8 Sep 2016</span><br><span class="hljs-comment">  by Colby Newman</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  This example code is in the public domain.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">// the setup function runs once when you press reset or power the board</span><br>void <span class="hljs-built_in">setup</span>() {<br>  <span class="hljs-comment">// initialize digital pin LED_BUILTIN as an output.</span><br>  <span class="hljs-built_in">pinMode</span>(LED_BUILTIN, OUTPUT);<br>}<br><br><span class="hljs-comment">// the loop function runs over and over again forever</span><br>void <span class="hljs-built_in">loop</span>() {<br>  <span class="hljs-built_in">digitalWrite</span>(LED_BUILTIN, HIGH);  <span class="hljs-comment">// turn the LED on (HIGH is the voltage level)</span><br>  <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);                      <span class="hljs-comment">// wait for a second</span><br>  <span class="hljs-built_in">digitalWrite</span>(LED_BUILTIN, LOW);   <span class="hljs-comment">// turn the LED off by making the voltage LOW</span><br>  <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);                      <span class="hljs-comment">// wait for a second</span><br>}<br><br></code></pre></td></tr></table></figure>
 <p>&#x91CC;&#x9762;&#x7684;&#x5B8F;&#x90FD;&#x662F;&#x505A;&#x4E86;2&#x6B21;&#x5C01;&#x88C5;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define LED_BUILTIN 13</span><br><span class="line">#define HIGH 0x1</span><br><span class="line">#define LOW  0x0</span><br><span class="line"></span><br><span class="line">#define INPUT 0x0</span><br><span class="line">#define OUTPUT 0x1</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> LED_BUILTIN 13</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> HIGH 0x1</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> LOW  0x0</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> INPUT 0x0</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> OUTPUT 0x1</span><br></code></pre></td></tr></table></figure></li>
 <li><p>&#x5176;&#x4ED6;&#x914D;&#x4EF6;  </p>
 <ol>
-<li>&#x9762;&#x5305;&#x677F;<br><img src="/2023/08/02/arduino-1/2023-08-02T151750.png" alt="2023-08-02T151750"><br>&#x9762;&#x5305;&#x677F;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E24;&#x8FB9;&#x7684;&#x63D2;&#x5B54;&#xFF0C;&#x662F;&#x6A2A;&#x5411;&#x8054;&#x901A;&#x3002;<br>&#x5BF9;&#x4E8E;&#x4E2D;&#x95F4;&#x7684;&#x63D2;&#x5B54;&#xFF0C;&#x662F;&#x7EB5;&#x5411;&#x8054;&#x901A;&#x3002;</li>
-<li>&#x7535;&#x963B;&#x548C;&#x7535;&#x5BB9;<br> <img src="/2023/08/02/arduino-1/2023-08-02T152006.png" alt="2023-08-02T152006"></li>
-<li>&#x4E8C;&#x6781;&#x7BA1;/LED&#xFF08;&#x53D1;&#x5149;&#x4E8C;&#x6781;&#x7BA1;&#xFF09;/&#x4E09;&#x6781;&#x7BA1;<br> <img src="/2023/08/02/arduino-1/2023-08-02T152051.png" alt="2023-08-02T152051"><br> &#x4E8C;&#x6781;&#x7BA1;&#xFF1A;&#x5355;&#x5411;&#x4F20;&#x5BFC;&#x7535;&#x6D41;&#x3002;<br> LED&#xFF08;&#x53D1;&#x5149;&#x4E8C;&#x6781;&#x7BA1;&#xFF09;&#xFF1A;&#x6B63;&#x8D1F;&#x4E24;&#x6781;&#xFF0C;&#x77ED;&#x811A;&#x4E3A;&#x8D1F;&#xFF0C;&#x957F;&#x811A;&#x4E3A;&#x6B63;&#x3002;<br> &#x4E09;&#x6781;&#x7BA1;&#xFF1A;&#x653E;&#x5927;&#x3001;&#x9707;&#x8361;&#x548C;&#x5F00;&#x5173;&#x4F5C;&#x7528;&#x3002;&#x6709;&#x53D1;&#x5C04;&#x6781;E&#xFF08;Emitter&#xFF09;&#x3001;&#x57FA;&#x6781;B&#xFF08;Base&#xFF09;&#x548C;&#x96C6;&#x7535;&#x6781;C&#xFF08;Collector&#xFF09;&#x4E09;&#x6781;&#x3002;&#x6709;PNP&#x548C;NPN&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x4E09;&#x6781;&#x7BA1;&#x3002;</li>
+<li>&#x9762;&#x5305;&#x677F;<br><img src="/2023/08/02/arduino-1/2023-08-02T151750.png" srcset="/img/loading.gif" lazyload alt="2023-08-02T151750"><br>&#x9762;&#x5305;&#x677F;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E24;&#x8FB9;&#x7684;&#x63D2;&#x5B54;&#xFF0C;&#x662F;&#x6A2A;&#x5411;&#x8054;&#x901A;&#x3002;<br>&#x5BF9;&#x4E8E;&#x4E2D;&#x95F4;&#x7684;&#x63D2;&#x5B54;&#xFF0C;&#x662F;&#x7EB5;&#x5411;&#x8054;&#x901A;&#x3002;</li>
+<li>&#x7535;&#x963B;&#x548C;&#x7535;&#x5BB9;<br> <img src="/2023/08/02/arduino-1/2023-08-02T152006.png" srcset="/img/loading.gif" lazyload alt="2023-08-02T152006"></li>
+<li>&#x4E8C;&#x6781;&#x7BA1;/LED&#xFF08;&#x53D1;&#x5149;&#x4E8C;&#x6781;&#x7BA1;&#xFF09;/&#x4E09;&#x6781;&#x7BA1;<br> <img src="/2023/08/02/arduino-1/2023-08-02T152051.png" srcset="/img/loading.gif" lazyload alt="2023-08-02T152051"><br> &#x4E8C;&#x6781;&#x7BA1;&#xFF1A;&#x5355;&#x5411;&#x4F20;&#x5BFC;&#x7535;&#x6D41;&#x3002;<br> LED&#xFF08;&#x53D1;&#x5149;&#x4E8C;&#x6781;&#x7BA1;&#xFF09;&#xFF1A;&#x6B63;&#x8D1F;&#x4E24;&#x6781;&#xFF0C;&#x77ED;&#x811A;&#x4E3A;&#x8D1F;&#xFF0C;&#x957F;&#x811A;&#x4E3A;&#x6B63;&#x3002;<br> &#x4E09;&#x6781;&#x7BA1;&#xFF1A;&#x653E;&#x5927;&#x3001;&#x9707;&#x8361;&#x548C;&#x5F00;&#x5173;&#x4F5C;&#x7528;&#x3002;&#x6709;&#x53D1;&#x5C04;&#x6781;E&#xFF08;Emitter&#xFF09;&#x3001;&#x57FA;&#x6781;B&#xFF08;Base&#xFF09;&#x548C;&#x96C6;&#x7535;&#x6781;C&#xFF08;Collector&#xFF09;&#x4E09;&#x6781;&#x3002;&#x6709;PNP&#x548C;NPN&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x4E09;&#x6781;&#x7BA1;&#x3002;</li>
 <li>&#x4F20;&#x611F;&#x5668;&#x6269;&#x5C55;&#x677F;</li>
 </ol>
 </li>
 <li><p>&#x6D41;&#x6C34;&#x706F;&#x5B9E;&#x9A8C;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">void setup() {</span><br><span class="line">  // initialize digital pin LED_BUILTIN as an output.</span><br><span class="line">  for(int i = 2; i &lt; 8; i++)</span><br><span class="line">    pinMode(i, OUTPUT);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// the loop function runs over and over again forever</span><br><span class="line">void loop() {</span><br><span class="line">  for(int i = 2; i &lt; 6; i++) {</span><br><span class="line">    digitalWrite(i, HIGH);  // turn the LED on (HIGH is the voltage level)</span><br><span class="line">    delay(500);                      // wait for a second</span><br><span class="line">    digitalWrite(i, LOW);   // turn the LED off by making the voltage LOW </span><br><span class="line">  }</span><br><span class="line">  for(int i = 6; i &gt; 2; i--) {</span><br><span class="line">    digitalWrite(i, HIGH);  // turn the LED on (HIGH is the voltage level)</span><br><span class="line">    delay(500);                      // wait for a second</span><br><span class="line">    digitalWrite(i, LOW);   // turn the LED off by making the voltage LOW </span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="/2023/08/02/arduino-1/2023-08-02T154645.png" alt="2023-08-02T154645"><br><img src="/2023/08/02/arduino-1/2023-08-02T154654.png" alt="2023-08-02T154654"></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs scss">void <span class="hljs-built_in">setup</span>() {<br>  <span class="hljs-comment">// initialize digital pin LED_BUILTIN as an output.</span><br>  <span class="hljs-built_in">for</span>(int i = <span class="hljs-number">2</span>; i &lt; <span class="hljs-number">8</span>; i++)<br>    <span class="hljs-built_in">pinMode</span>(i, OUTPUT);<br>}<br><br><span class="hljs-comment">// the loop function runs over and over again forever</span><br>void <span class="hljs-built_in">loop</span>() {<br>  <span class="hljs-built_in">for</span>(int i = <span class="hljs-number">2</span>; i &lt; <span class="hljs-number">6</span>; i++) {<br>    <span class="hljs-built_in">digitalWrite</span>(i, HIGH);  <span class="hljs-comment">// turn the LED on (HIGH is the voltage level)</span><br>    <span class="hljs-built_in">delay</span>(<span class="hljs-number">500</span>);                      <span class="hljs-comment">// wait for a second</span><br>    <span class="hljs-built_in">digitalWrite</span>(i, LOW);   <span class="hljs-comment">// turn the LED off by making the voltage LOW </span><br>  }<br>  <span class="hljs-built_in">for</span>(int i = <span class="hljs-number">6</span>; i &gt; <span class="hljs-number">2</span>; i--) {<br>    <span class="hljs-built_in">digitalWrite</span>(i, HIGH);  <span class="hljs-comment">// turn the LED on (HIGH is the voltage level)</span><br>    <span class="hljs-built_in">delay</span>(<span class="hljs-number">500</span>);                      <span class="hljs-comment">// wait for a second</span><br>    <span class="hljs-built_in">digitalWrite</span>(i, LOW);   <span class="hljs-comment">// turn the LED off by making the voltage LOW </span><br>  }<br>}<br><br></code></pre></td></tr></table></figure>
+<p><img src="/2023/08/02/arduino-1/2023-08-02T154645.png" srcset="/img/loading.gif" lazyload alt="2023-08-02T154645"><br><img src="/2023/08/02/arduino-1/2023-08-02T154654.png" srcset="/img/loading.gif" lazyload alt="2023-08-02T154654"></p>
 </li>
 <li><p>&#x547C;&#x5438;&#x706F;</p>
 </li>
 <li><p>&#x901A;&#x8FC7;&#x7535;&#x4F4D;&#x5668;&#x63A7;&#x5236;&#x547C;&#x5438;&#x706F;&#x9891;&#x7387;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">int ledPin = 9;</span><br><span class="line">int pot = A0;</span><br><span class="line">void setup() {</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// the loop function runs over and over again forever</span><br><span class="line">void loop() {</span><br><span class="line">  for(int fadeValue = 0; fadeValue &lt;= 255; fadeValue +=5) {</span><br><span class="line">    analogWrite(ledPin, fadeValue);</span><br><span class="line">    int time = analogRead(pot) / 5;</span><br><span class="line">    delay(time);</span><br><span class="line">  }</span><br><span class="line">  for(int fadeValue = 255; fadeValue &gt;= 0; fadeValue -=5) {</span><br><span class="line">    analogWrite(ledPin, fadeValue);</span><br><span class="line">    delay(analogRead(pot) / 5);</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-built_in">int</span> ledPin = <span class="hljs-number">9</span>;<br><span class="hljs-built_in">int</span> pot = A0;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>()</span> {<br><br>}<br><br><span class="hljs-comment">// the loop function runs over and over again forever</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span>()</span> {<br>  <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> fadeValue = <span class="hljs-number">0</span>; fadeValue &lt;= <span class="hljs-number">255</span>; fadeValue +=<span class="hljs-number">5</span>) {<br>    analogWrite(ledPin, fadeValue);<br>    <span class="hljs-built_in">int</span> time = analogRead(pot) / <span class="hljs-number">5</span>;<br>    delay(time);<br>  }<br>  <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> fadeValue = <span class="hljs-number">255</span>; fadeValue &gt;= <span class="hljs-number">0</span>; fadeValue -=<span class="hljs-number">5</span>) {<br>    analogWrite(ledPin, fadeValue);<br>    delay(analogRead(pot) / <span class="hljs-number">5</span>);<br>  }<br>  <br>}<br><br></code></pre></td></tr></table></figure>
 </li>
-<li><p>&#x5149;&#x654F;&#x7535;&#x963B;<br><img src="/2023/08/02/arduino-1/2023-08-05T184514.png" alt="2023-08-05T184514"><br><img src="/2023/08/02/arduino-1/2023-08-05T184721.png" alt="2023-08-05T184721"><br>&#x8BFB;&#x51FA;&#x7535;&#x538B;&#x3000;&#xFF58; = R1 / (R1 + R2) X 5V</p>
+<li><p>&#x5149;&#x654F;&#x7535;&#x963B;<br><img src="/2023/08/02/arduino-1/2023-08-05T184514.png" srcset="/img/loading.gif" lazyload alt="2023-08-05T184514"><br><img src="/2023/08/02/arduino-1/2023-08-05T184721.png" srcset="/img/loading.gif" lazyload alt="2023-08-05T184721"><br>&#x8BFB;&#x51FA;&#x7535;&#x538B;&#x3000;&#xFF58; = R1 / (R1 + R2) X 5V</p>
 </li>
 </ol>
 <p>0.5 = R1 / (R1 + 10000) X 5<br>R1 =  101<br>1 = R1 / &#xFF08;R1 + 10000&#xFF09;X 5<br>R1 = 2500  </p>
 <ol start="8">
-<li>&#x6E29;&#x5EA6;&#x4F20;&#x611F;&#x5668;<br><img src="/2023/08/02/arduino-1/2023-08-05T201309.png" alt="2023-08-05T201309"><br><img src="/2023/08/02/arduino-1/2023-08-05T201323.png" alt="2023-08-05T201323"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">float temp = (5.0 * analogRead(LM35) * 100.0) / 1024;</span><br><span class="line">Serial.print(&quot;temperature: &quot;);</span><br><span class="line">Serial.print(temp);</span><br><span class="line">Serial.println(&quot; C&quot;);</span><br></pre></td></tr></table></figure></li>
-<li>&#x5176;&#x4ED6;&#x6A21;&#x5757;<br><img src="/2023/08/02/arduino-1/2023-08-05T202147.png" alt="2023-08-05T202147"><br><img src="/2023/08/02/arduino-1/2023-08-05T202236.png" alt="2023-08-05T202236"></li>
-<li>&#x4E32;&#x53E3;<br><img src="/2023/08/02/arduino-1/2023-08-05T202644.png" alt="2023-08-05T202644"><br>&#x65E0;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x4FBF;&#x4F1A;&#x8FD4;&#x56DE;-1,&#x5BF9;&#x5E94;&#x4E71;&#x7801;&#x3002;<br><img src="/2023/08/02/arduino-1/2023-08-05T202920.png" alt="2023-08-05T202920"><br>&#x53EF;&#x4F7F;&#x7528;available&#x5224;&#x65AD;&#x3002;</li>
+<li>&#x6E29;&#x5EA6;&#x4F20;&#x611F;&#x5668;<br><img src="/2023/08/02/arduino-1/2023-08-05T201309.png" srcset="/img/loading.gif" lazyload alt="2023-08-05T201309"><br><img src="/2023/08/02/arduino-1/2023-08-05T201323.png" srcset="/img/loading.gif" lazyload alt="2023-08-05T201323"><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-type">float</span> <span class="hljs-keyword">temp</span> = (<span class="hljs-number">5.0</span> * analogRead(LM35) * <span class="hljs-number">100.0</span>) / <span class="hljs-number">1024</span>;<br><span class="hljs-type">Serial</span>.print(&quot;temperature: &quot;);<br><span class="hljs-type">Serial</span>.print(<span class="hljs-keyword">temp</span>);<br><span class="hljs-type">Serial</span>.println(&quot; C&quot;);<br></code></pre></td></tr></table></figure></li>
+<li>&#x5176;&#x4ED6;&#x6A21;&#x5757;<br><img src="/2023/08/02/arduino-1/2023-08-05T202147.png" srcset="/img/loading.gif" lazyload alt="2023-08-05T202147"><br><img src="/2023/08/02/arduino-1/2023-08-05T202236.png" srcset="/img/loading.gif" lazyload alt="2023-08-05T202236"></li>
+<li>&#x4E32;&#x53E3;<br><img src="/2023/08/02/arduino-1/2023-08-05T202644.png" srcset="/img/loading.gif" lazyload alt="2023-08-05T202644"><br>&#x65E0;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x4FBF;&#x4F1A;&#x8FD4;&#x56DE;-1,&#x5BF9;&#x5E94;&#x4E71;&#x7801;&#x3002;<br><img src="/2023/08/02/arduino-1/2023-08-05T202920.png" srcset="/img/loading.gif" lazyload alt="2023-08-05T202920"><br>&#x53EF;&#x4F7F;&#x7528;available&#x5224;&#x65AD;&#x3002;</li>
 </ol>
 <p>&#x901A;&#x8FC7;&#x4E32;&#x53E3;&#x8F93;&#x5165;&#x6765;&#x63A7;&#x5236;&#x706F;&#x7684;&#x4EAE;&#x706D;&#x3002;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">  pinMode(13, OUTPUT);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  if (Serial.available() &gt; 0) {</span><br><span class="line">    char ch = Serial.read();</span><br><span class="line">    Serial.print(ch);</span><br><span class="line">    if(ch == &apos;a&apos;)</span><br><span class="line">    {</span><br><span class="line">      digitalWrite(13, HIGH);</span><br><span class="line">      Serial.println(&quot;turn on&quot;);</span><br><span class="line">    }</span><br><span class="line">    else if (ch == &apos;b&apos;){</span><br><span class="line">      digitalWrite(13, LOW);</span><br><span class="line">      Serial.println(&quot;turn off&quot;);</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{<br>  <span class="hljs-comment">// put your setup code here, to run once:</span><br>  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">begin</span>(<span class="hljs-number">9600</span>);<br>  <span class="hljs-built_in">pinMode</span>(<span class="hljs-number">13</span>, <span class="hljs-literal">OUTPUT</span>);<br>}<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> </span>{<br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">available</span>() &gt; <span class="hljs-number">0</span>) {<br>    <span class="hljs-type">char</span> ch = <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">read</span>();<br>    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(ch);<br>    <span class="hljs-keyword">if</span>(ch == <span class="hljs-string">&apos;a&apos;</span>)<br>    {<br>      <span class="hljs-built_in">digitalWrite</span>(<span class="hljs-number">13</span>, <span class="hljs-literal">HIGH</span>);<br>      <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;turn on&quot;</span>);<br>    }<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">&apos;b&apos;</span>){<br>      <span class="hljs-built_in">digitalWrite</span>(<span class="hljs-number">13</span>, <span class="hljs-literal">LOW</span>);<br>      <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;turn off&quot;</span>);<br>    }<br>  }<br>}<br><br></code></pre></td></tr></table></figure>
 <ol start="11">
-<li>&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x51FD;&#x6570;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">unsigned long time1;</span><br><span class="line">unsigned long time2;</span><br><span class="line"></span><br><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  // &#x6839;&#x636E;Arduino&#x6676;&#x632F;&#x4E0D;&#x540C;&#xFF0C;16MHz&#x7CBE;&#x5EA6;&#x4E3A;4&#x5FAE;&#x79D2;&#xFF0C;8MHz&#x7CBE;&#x5EA6;8&#x5FAE;&#x79D2;</span><br><span class="line">  time1 = millis(); // &#x8FD4;&#x56DE;&#x6BEB;&#x79D2;&#xFF0C;&#x5927;&#x6982;50&#x5929;&#x6EA2;&#x51FA;&#x4E00;&#x6B21;</span><br><span class="line">  time2 = micros(); // &#x8FD4;&#x56DE;&#x5FAE;&#x79D2;&#xFF0C;&#x5927;&#x6982;70&#x5206;&#x949F;&#x6EA2;&#x51FA;&#x4E00;&#x6B21;</span><br><span class="line"></span><br><span class="line">  Serial.print(time1);</span><br><span class="line">  Serial.println(&quot;ms&quot;);</span><br><span class="line"></span><br><span class="line">  Serial.print(time2);</span><br><span class="line">  Serial.println(&quot;us&quot;);</span><br><span class="line">  delay(1000);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-&#x5EF6;&#x8FDF;&#x51FD;&#x6570;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delay(); // &#x6BEB;&#x79D2;&#x7EA7;&#x5EF6;&#x8FDF;&#xFF0C;unsigned long</span><br><span class="line">delayMicroseconds(); // &#x5FAE;&#x79D2;&#x7EA7;&#x5EF6;&#x8FDF;&#xFF0C; unsigned int</span><br></pre></td></tr></table></figure></li>
+<li>&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x51FD;&#x6570;<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> time1;<br><span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> time2;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{<br>  <span class="hljs-comment">// put your setup code here, to run once:</span><br>  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">begin</span>(<span class="hljs-number">9600</span>);<br>}<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> </span>{<br>  <span class="hljs-comment">// &#x6839;&#x636E;Arduino&#x6676;&#x632F;&#x4E0D;&#x540C;&#xFF0C;16MHz&#x7CBE;&#x5EA6;&#x4E3A;4&#x5FAE;&#x79D2;&#xFF0C;8MHz&#x7CBE;&#x5EA6;8&#x5FAE;&#x79D2;</span><br>  time1 = <span class="hljs-built_in">millis</span>(); <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x6BEB;&#x79D2;&#xFF0C;&#x5927;&#x6982;50&#x5929;&#x6EA2;&#x51FA;&#x4E00;&#x6B21;</span><br>  time2 = <span class="hljs-built_in">micros</span>(); <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x5FAE;&#x79D2;&#xFF0C;&#x5927;&#x6982;70&#x5206;&#x949F;&#x6EA2;&#x51FA;&#x4E00;&#x6B21;</span><br><br>  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(time1);<br>  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;ms&quot;</span>);<br><br>  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(time2);<br>  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;us&quot;</span>);<br>  <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);<br>}<br><br></code></pre></td></tr></table></figure>
+&#x5EF6;&#x8FDF;&#x51FD;&#x6570;<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">delay</span>(); <span class="hljs-comment">// &#x6BEB;&#x79D2;&#x7EA7;&#x5EF6;&#x8FDF;&#xFF0C;unsigned long</span><br><span class="hljs-built_in">delayMicroseconds</span>(); <span class="hljs-comment">// &#x5FAE;&#x79D2;&#x7EA7;&#x5EF6;&#x8FDF;&#xFF0C; unsigned int</span><br></code></pre></td></tr></table></figure></li>
 </ol>
 <p>tips:</p>
 <ol>
 <li>&#x6269;&#x5C55;&#x677F;&#xFF08;Shield&#xFF09;</li>
 </ol>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B/" class="print-no-link">#编程</a>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://leiz-eng.github.io/2023/08/02/arduino-1/" data-id="cllnvf7n800030gv8d2plaqkc" data-title="arduino 学习（1）" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+  
+</div>
 
-    </footer>
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>arduino 学习（1）</div>
+      <div>https://leiz-eng.github.io/2023/08/02/arduino-1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Lei Zhao</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年8月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2023/08/07/arduino-2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          arduino 学习（2）
-        
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/08/07/arduino-2/" title="arduino 学习（2）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">arduino 学习（2）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/30/reading-notes-4/" title="（4）读书笔记 —— 呐喊">
+                        <span class="hidden-mobile">（4）读书笔记 —— 呐喊</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
-    </a>
-  
-  
-    <a href="/2023/07/30/reading-notes-4/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">（4）读书笔记 —— 呐喊</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA/" rel="tag">个人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
     </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 10px;">个人</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 15px;">读书</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/08/15/arduino-6/">arduino 学习（6）</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/10/arduino-5/">arduino 学习（5）</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/09/arduino-4/">arduino 学习（4）</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/08/arduino-3/">arduino 学习（3）—— 通信</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/08/reading-notes-5/">（5）读书笔记 —— 心中有数</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-      &copy; 2023 Lei Zhao<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
-    <nav id="mobile-nav">
+  </div>
+</div>
+
+
+
+
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+
+
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
 
-<script src="/js/script.js"></script>
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
 
 
-  </div>
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
