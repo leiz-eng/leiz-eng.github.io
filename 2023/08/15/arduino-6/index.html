@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/15/arduino-6/2023-08-15T194501.png">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/15/arduino-6/2023-08-15T173649.png">
 <meta property="article:published_time" content="2023-08-15T09:33:08.000Z">
-<meta property="article:modified_time" content="2023-08-23T09:10:15.351Z">
+<meta property="article:modified_time" content="2023-08-23T09:24:05.495Z">
 <meta property="article:author" content="Lei Zhao">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
@@ -41,7 +41,11 @@
 
   
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
   <div id="container">
@@ -107,16 +111,28 @@
       
         <p>&#x5B66;&#x4E60;&#x4E86;&#x8FD9;&#x4E48;&#x4E45;Arduino&#x60F3;&#x8981;&#x505A;&#x4E00;&#x4E2A;project&#xFF0C;&#x76EE;&#x524D;&#x6709;&#x7684;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#xFF1A;</p>
 <ol>
-<li>Arduino UNO R3<br><img src="/2023/08/15/arduino-6/2023-08-15T194501.png" alt="2023-08-15T194501"><span id="more"></span></li>
-<li>&#x4F20;&#x611F;&#x5668;&#x6269;&#x5C55;&#x677F;<br><img src="/2023/08/15/arduino-6/2023-08-15T173649.png" alt="2023-08-15T173649"><br><a target="_blank" rel="noopener" href="https://www.openjumper.com/doc/ojxm10-sensors-shield">https://www.openjumper.com/doc/ojxm10-sensors-shield</a><br>&#x5982;&#x4E0A;&#x53C2;&#x8003;&#x3002;</li>
-<li>12864 IIC LCD</li>
-<li>DS1307 &#x65F6;&#x949F;</li>
-<li>&#x4EBA;&#x4F53;&#x611F;&#x5E94;&#x5668;&#x6A21;&#x5757;</li>
-<li>&#x8702;&#x9E23;&#x5668;</li>
-<li>&#x7EE7;&#x7535;&#x5668;</li>
-<li>&#x76F4;&#x6D41;&#x7535;&#x673A;&#x5C0F;&#x98CE;&#x6247;</li>
-<li>&#x7EA2;&#x5916;&#x63A5;&#x6536;&#x5668;</li>
-<li>&#x7EA2;&#x5916;&#x9065;&#x63A7;&#x5668;</li>
+<li><p>Arduino UNO R3</p>
+<span id="more"></span>
+<p><img src="/2023/08/15/arduino-6/2023-08-15T194501.png" alt="2023-08-15T194501"></p>
+</li>
+<li><p>&#x4F20;&#x611F;&#x5668;&#x6269;&#x5C55;&#x677F;<br><img src="/2023/08/15/arduino-6/2023-08-15T173649.png" alt="2023-08-15T173649"><br><a target="_blank" rel="noopener" href="https://www.openjumper.com/doc/ojxm10-sensors-shield">https://www.openjumper.com/doc/ojxm10-sensors-shield</a><br>&#x5982;&#x4E0A;&#x53C2;&#x8003;&#x3002;</p>
+</li>
+<li><p>12864 IIC LCD</p>
+</li>
+<li><p>DS1307 &#x65F6;&#x949F;</p>
+</li>
+<li><p>&#x4EBA;&#x4F53;&#x611F;&#x5E94;&#x5668;&#x6A21;&#x5757;</p>
+</li>
+<li><p>&#x8702;&#x9E23;&#x5668;</p>
+</li>
+<li><p>&#x7EE7;&#x7535;&#x5668;</p>
+</li>
+<li><p>&#x76F4;&#x6D41;&#x7535;&#x673A;&#x5C0F;&#x98CE;&#x6247;</p>
+</li>
+<li><p>&#x7EA2;&#x5916;&#x63A5;&#x6536;&#x5668;</p>
+</li>
+<li><p>&#x7EA2;&#x5916;&#x9065;&#x63A7;&#x5668;</p>
+</li>
 <li></li>
 </ol>
 <p>&#x9879;&#x76EE;0&#xFF1A;<br>RTC LCD &#x4F7F;&#x7528;DS1307 &#x642D;&#x914D;12864&#x5C4F;&#x5E55; &#x6570;&#x5B57;&#x65F6;&#x949F;<br>&#x5DF2;&#x4E0A;&#x4F20;github<br><a target="_blank" rel="noopener" href="https://github.com/leiz-eng/Arduino-Digital-Clock">https://github.com/leiz-eng/Arduino-Digital-Clock</a>  </p>
@@ -125,7 +141,7 @@
 <p>&#x9879;&#x76EE;1&#xFF1A;<br>&#x7EA2;&#x5916;&#x9065;&#x63A7;&#x63A7;&#x5236;&#x76F4;&#x6D41;&#x7535;&#x673A;&#x5C0F;&#x98CE;&#x6247;+3W LED&#xFF0C;&#x5E76;&#x4E14;&#x9065;&#x63A7;&#x4F34;&#x968F;&#x8702;&#x9E23;&#x5668;&#x58F0;&#x97F3;&#x3002;<br><a target="_blank" rel="noopener" href="https://github.com/leiz-eng/Arduino-Sensors">https://github.com/leiz-eng/Arduino-Sensors</a>  </p>
 <iframe src="//player.bilibili.com/player.html?aid=617292384&amp;bvid=BV1y84y1f7BR&amp;cid=1235768735&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="600px" width="100%"> </iframe>
 
-<p>&#x540E;&#x7EED;&#x589E;&#x52A0;&#x4E86;&#x5BF9;&#x8235;&#x673A;&#x548C;&#x8D85;&#x58F0;&#x6CE2;&#x4F20;&#x611F;&#x5668;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x4E86;protothreads&#x6765;&#x6A21;&#x62DF;&#x591A;&#x7EBF;&#x7A0B;&#x64CD;&#x4F5C;&#xFF0C;&#x9632;&#x6B62;delay&#x51FD;&#x6570;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x529F;&#x80FD;</p>
+<p>&#x540E;&#x7EED;&#x589E;&#x52A0;&#x4E86;&#x5BF9;&#x8235;&#x673A;&#x548C;&#x8D85;&#x58F0;&#x6CE2;&#x4F20;&#x611F;&#x5668;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x4E86;protothreads&#x6765;&#x6A21;&#x62DF;&#x591A;&#x7EBF;&#x7A0B;&#x64CD;&#x4F5C;&#xFF0C;&#x9632;&#x6B62;delay&#x51FD;&#x6570;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x529F;&#x80FD;&#x3002;&#x5173;&#x4E8E;&#x5BF9;protothreads&#x7684;&#x7406;&#x89E3;&#xFF0C;<br>&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x5982;&#x4E0B;&#x94FE;&#x63A5;<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26226375/article/details/128833842">https://blog.csdn.net/qq_26226375/article/details/128833842</a><br>&#x4EE5;&#x53CA;protothreads&#x7684;&#x5B98;&#x65B9;examples&#xFF0C;&#x5728;arduino ide&#x4E2D;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x3002;</p>
 <iframe src="//player.bilibili.com/player.html?aid=447560286&amp;bvid=BV1Tj411q7GD&amp;cid=1244229603&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="600px" width="100%"> </iframe>
 
 
@@ -137,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leiz-eng.github.io/2023/08/15/arduino-6/" data-id="cllc8bd8a0000qkv8aa7u8afz" data-title="arduino 学习（6）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://leiz-eng.github.io/2023/08/15/arduino-6/" data-id="cllnvf7nc000b0gv8gke1aiqf" data-title="arduino 学习（6）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

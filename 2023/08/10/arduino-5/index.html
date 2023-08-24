@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/10/arduino-5/2023-08-10T163225.png">
 <meta property="og:image" content="https://leiz-eng.github.io/2023/08/10/arduino-5/2023-08-10T172718.png">
 <meta property="article:published_time" content="2023-08-10T01:28:21.000Z">
-<meta property="article:modified_time" content="2023-08-16T02:47:02.823Z">
+<meta property="article:modified_time" content="2023-08-23T09:12:38.628Z">
 <meta property="article:author" content="Lei Zhao">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,11 @@
 
   
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
   <div id="container">
@@ -112,8 +116,12 @@
       
         <p>&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x4F20;&#x611F;&#x5668;</p>
 <ol>
-<li>&#x58F0;&#x97F3;&#x4F20;&#x611F;&#x5668;<br><img src="/2023/08/10/arduino-5/2023-08-10T153426.png" alt="2023-08-10T153426"><span id="more"></span>
-&#x6682;&#x65F6;&#x8FD8;&#x6CA1;&#x6709;&#x8BFB;&#x51FA;&#x503C;&#xFF0C;&#x8FD8;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x95EE;&#x9898;&#x539F;&#x56E0;&#x3002;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  int sensorValue = analogRead(A0);</span><br><span class="line"></span><br><span class="line">  Serial.println(sensorValue);</span><br><span class="line"></span><br><span class="line">  delay(1000);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>&#x58F0;&#x97F3;&#x4F20;&#x611F;&#x5668;<span id="more"></span>
+<img src="/2023/08/10/arduino-5/2023-08-10T153426.png" alt="2023-08-10T153426"></li>
+</ol>
+<p>&#x6682;&#x65F6;&#x8FD8;&#x6CA1;&#x6709;&#x8BFB;&#x51FA;&#x503C;&#xFF0C;&#x8FD8;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x95EE;&#x9898;&#x539F;&#x56E0;&#x3002;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  int sensorValue = analogRead(A0);</span><br><span class="line"></span><br><span class="line">  Serial.println(sensorValue);</span><br><span class="line"></span><br><span class="line">  delay(1000);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2">
 <li>&#x89E6;&#x6478;&#x4F20;&#x611F;&#x5668;<br><img src="/2023/08/10/arduino-5/2023-08-10T153926.png" alt="2023-08-10T153926"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void setup() {</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Serial.begin(9600);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void loop() {</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  int sensorValue = digitalRead(5);</span><br><span class="line"></span><br><span class="line">  Serial.println(sensorValue);</span><br><span class="line"></span><br><span class="line">  delay(100);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ol>
 <p><img src="/2023/08/10/arduino-5/2023-08-10T153947.png" alt="2023-08-10T153947"><br>&#x89E6;&#x6478;&#x65F6;&#x4E3A;1&#xFF0C;&#x653E;&#x5F00;&#x65F6;&#x4E3A;0&#xFF1B;</p>
@@ -141,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leiz-eng.github.io/2023/08/10/arduino-5/" data-id="cll4isyix0000iwv86s2qhwg5" data-title="arduino 学习（5）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://leiz-eng.github.io/2023/08/10/arduino-5/" data-id="cllnvf7nb00090gv89cljai09" data-title="arduino 学习（5）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
